@@ -56,7 +56,7 @@ const CreatePost = () => {
   return (
     <div className="card-global ">
       <div className=" gap-4 space-y-3">
-        <Profile />
+        <Profile user={auth} />
         <InputField
           handleChange={(e) => setPost(e.target.value)}
           value={post}

@@ -1,10 +1,7 @@
-import Image from "next/image";
 import profile from "@/assets/aziz.jpeg";
-import { useAuthContext } from "@/components/provider/AuthProvider";
+import Image from "next/image";
 
-export const Profile = () => {
-  const { user } = useAuthContext("");
-
+export const Profile = ({ user }) => {
   return (
     <div className="flex space-x-3 items-center">
       <Image src={profile} className="rounded-full" width={60} alt="profile" />
