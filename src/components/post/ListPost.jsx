@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 const ListPost = ({ user, content, id }) => {
   const [isEdit, setEdit] = useState(false);
   const [post, setPost] = useState(content);
+  const [isLike, setIsLike] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const router = useRouter();
@@ -62,7 +63,7 @@ const ListPost = ({ user, content, id }) => {
           alt="profile"
         />
         <div className="">
-          <h1 className="font-bold">{user}</h1>
+          <h1 className="font-bold capitalize">{user}</h1>
           <input
             type="text"
             value={"Sponsored"}
@@ -84,8 +85,12 @@ const ListPost = ({ user, content, id }) => {
       </div>
 
       <div className="flex justify-between items-center px-3">
-        <button className="flex space-x-2 hover:bg-slate-100 p-2 rounded-lg">
-          <ThumbsUp />
+        <button
+          className="flex space-x-2 hover:bg-slate-100 p-2 rounded-lg"
+          onClick={() => setIsLike(!isLike)}
+        >
+          {isLike ? <ThumbsUp fill="#6495ED" /> : <ThumbsUp />}
+
           <span>Like</span>
         </button>
 
